@@ -1278,7 +1278,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: TEXT
+  m_text: 'Sun
+
+    Colleecrtor'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3526,10 +3528,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3772038788770203961, guid: 5c5e11b53dd965848871a84f209877a1, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -1
-      objectReference: {fileID: 0}
     - target: {fileID: 4342936364679470471, guid: 5c5e11b53dd965848871a84f209877a1, type: 3}
       propertyPath: m_Name
       value: RegenerableBio
@@ -3573,10 +3571,6 @@ PrefabInstance:
     - target: {fileID: 8613784304991974314, guid: 5c5e11b53dd965848871a84f209877a1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8874187122713627988, guid: 5c5e11b53dd965848871a84f209877a1, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3960,6 +3954,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 1000
+  maxHealth: 1000
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -22,7 +22,7 @@ public class BuildSystem : MonoBehaviour
     void Update()
     {
         Vector3 mousePosition = Input.mousePosition;
-        mousePosition.z = 50f; // Set a distance from the camera
+        mousePosition.z = 100f; // Set a distance from the camera
         Vector3 worldPosition = Camera.main.ScreenToWorldPoint(mousePosition);
 
         // Snap to grid

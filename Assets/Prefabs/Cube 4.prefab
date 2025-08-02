@@ -448,7 +448,7 @@ MonoBehaviour:
   damageAmount: 10
   damageInterval: 1
   nextDamageTime: 0
-  health: 5
+  health: 100
 --- !u!114 &2457817480959830236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -461,7 +461,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfe7e80ca90f098439b0a7eec85c4214, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 5
+  health: 100
 --- !u!1 &7078707465093697047
 GameObject:
   m_ObjectHideFlags: 0

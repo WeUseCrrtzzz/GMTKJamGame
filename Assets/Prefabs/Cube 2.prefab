@@ -9,10 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 815463900847681829}
-  - component: {fileID: 7820732248702959799}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Generator
+  m_TagString: SunGenerator
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32,19 +31,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6622358801698369793}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7820732248702959799
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 494791287715462632}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3aa027616af7de4297628af98aa6c64, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  regenerationRadius: 10
 --- !u!1 &2015839928542650416
 GameObject:
   m_ObjectHideFlags: 0
@@ -198,6 +184,7 @@ GameObject:
   - component: {fileID: 6835015184813693307}
   - component: {fileID: 915255816437667856}
   - component: {fileID: 6665890640188258597}
+  - component: {fileID: 4133905419320253280}
   m_Layer: 0
   m_Name: Cube 2
   m_TagString: PlayerBlock
@@ -313,6 +300,19 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &4133905419320253280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5297254592272045543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfe7e80ca90f098439b0a7eec85c4214, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
 --- !u!1 &8429382277654643914
 GameObject:
   m_ObjectHideFlags: 0

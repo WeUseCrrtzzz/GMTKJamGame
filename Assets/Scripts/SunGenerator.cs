@@ -33,4 +33,9 @@ public class SunGenerator : MonoBehaviour
     {
         isActive = true;
     }
+
+    public void Deactivate()
+    {
+        isActive = false;
+    }
 }

@@ -4,7 +4,9 @@ public class Health : MonoBehaviour
 {
 
     public float health = 100;
+    public float maxHealth = 100;
     private GameObject healthBar;
+    
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -22,7 +24,7 @@ public class Health : MonoBehaviour
 
         if (healthBar != null)
         {
-            healthBar.transform.localScale = new Vector3(health / 90f, 1, 1);
+            healthBar.transform.localScale = new Vector3(0.9f, 0.9f, health / maxHealth * 0.9f);
         }
     }
 }
