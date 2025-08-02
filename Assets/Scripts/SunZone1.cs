@@ -35,5 +35,14 @@ public class SunZone1 : MonoBehaviour
                 }
             }
         }
+
+        if (collision.gameObject.CompareTag("SunGenerator"))
+        {
+            SunGenerator sunGenerator = collision.gameObject.GetComponent<SunGenerator>();
+            if (sunGenerator != null)
+            {
+                sunGenerator.Activate();
+            }
+        }
     }
 }
