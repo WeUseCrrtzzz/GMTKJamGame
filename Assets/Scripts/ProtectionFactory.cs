@@ -28,6 +28,7 @@ public class ProtectionFactory : MonoBehaviour
                 {
                     enemyScript.health -= damageAmount;
                     health -= damageAmount; // Reduce factory health as well
+                    Resources.coins += damageAmount; // Reward coins for damaging enemies
                     nextDamageTime = Time.time + damageInterval;
 
                     if (enemyScript.health <= 0f)

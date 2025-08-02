@@ -9,6 +9,7 @@ public class BuildSystem : MonoBehaviour
     public float GridZ = 2f;
     public GameObject[] buildPrefabs;
     public LayerMask layerMask;
+    public LayerMask groundLayerMask;
     public GameObject target;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -45,7 +46,23 @@ public class BuildSystem : MonoBehaviour
             layerMask
         );
 
-        if (isNotColliding && !EventSystem.current.IsPointerOverGameObject())
+        bool collidingWithGround = Physics.CheckBox(
+            target.transform.position,
+            boxSize,
+            target.transform.rotation,
+            groundLayerMask
+        );
+
+        if (isNotColliding && collidingWithGround)
+        {
+            target.GetComponent<Renderer>().material.color = Color.green; // Change color to green if valid position
+        }
+        else
+        {
+            target.GetComponent<Renderer>().material.color = Color.red; // Change color to red if invalid position
+        }
+
+        if (isNotColliding && collidingWithGround && !EventSystem.current.IsPointerOverGameObject())
         {
             if (Input.GetKeyDown("mouse 0")) 
             {

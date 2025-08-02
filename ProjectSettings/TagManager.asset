@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Generator
   - Enemy
+  - PlayerBlock
+  - ResourceBlock
+  - RegenResourceBlock
   layers:
   - Default
   - TransparentFX
