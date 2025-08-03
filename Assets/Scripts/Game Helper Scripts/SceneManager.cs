@@ -3,11 +3,64 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public string gameSceneName = "MainGame"; // set to the actual gameplay scene name
+    public static bool IsPaused { get; private set; } = false;
+
+    [Header("UI Elements")]
+    public GameObject pauseMenuUI;
+
+    [Header("Optional Systems")]
+    public GameObject allRadiusDamageZone; // assign this if it exists
+
+    [Header("Scene Names")]
+    public string mainMenuSceneName = "MainMenu";
+    public string mainGameSceneName = "MainGame";
+
+    private void Start()
+    {
+        pauseMenuUI?.SetActive(false);
+    }
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (IsPaused) ResumeGame();
+            else PauseGame();
+        }
+    }
+
+    public void PauseGame()
+    {
+        IsPaused = true;
+        pauseMenuUI?.SetActive(true);
+
+        if (allRadiusDamageZone != null)
+            allRadiusDamageZone.SetActive(false);
+    }
+
+    public void ResumeGame()
+    {
+        IsPaused = false;
+        pauseMenuUI?.SetActive(false);
+
+        if (allRadiusDamageZone != null)
+            allRadiusDamageZone.SetActive(true);
+    }
+
+    public void TogglePause()
+    {
+        if (IsPaused) ResumeGame();
+        else PauseGame();
+    }
+
+    public void ReturnToMainMenu()
+    {
+        IsPaused = false;
+        SceneManager.LoadScene(mainMenuSceneName);
+    }
 
     public void StartGame()
     {
-        SceneManager.LoadScene(gameSceneName);
+        SceneManager.LoadScene(mainGameSceneName);
     }
 
     public void OpenOptions()
