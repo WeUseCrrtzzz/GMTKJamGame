@@ -1,11 +1,12 @@
 using UnityEngine;
+using System.Collections.Generic;
+using System.Linq;
 
 public class SunZone1 : MonoBehaviour
 {
 
     public float damagePerSecond = 5f;
-    private float nextDamageTime = 0f;
-    public float damageInterval = 1.0f;
+    public List<GameObject> collidingBlocks = new List<GameObject>();
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -16,39 +17,66 @@ public class SunZone1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-    }
+        collidingBlocks = collidingBlocks.Where(item => item != null).ToList();
 
-    void OnTriggerStay(Collider collision) 
-    {
-        if (collision.gameObject.CompareTag("PlayerBlock") || 
-            collision.gameObject.CompareTag("Enemy") || 
-            collision.gameObject.CompareTag("ResourceBlock") ||
-            collision.gameObject.CompareTag("RegenResourceBlock"))
+        foreach (GameObject block in collidingBlocks) 
         {
-            Health healthComponent = collision.gameObject.GetComponent<Health>();
-            if (healthComponent != null)
+            if (block.GetComponentInParent<Health>().gameObject.CompareTag("PlayerBlock") || 
+                block.GetComponentInParent<Health>().gameObject.CompareTag("Enemy") || 
+                block.GetComponentInParent<Health>().gameObject.CompareTag("ResourceBlock") ||
+                block.GetComponentInParent<Health>().gameObject.CompareTag("RegenResourceBlock"))
             {
-                if (Time.time >= nextDamageTime)
+                Health healthComponent = block.GetComponentInParent<Health>();
+                if (healthComponent != null)
                 {
-                    healthComponent.health -= damagePerSecond;
-                    nextDamageTime = Time.time + damageInterval;
+                    if (Time.time >= healthComponent.nextDamageTime)
+                    {
+                        healthComponent.health -= damagePerSecond;
+                        healthComponent.nextDamageTime = Time.time + healthComponent.damageInterval;
+                    }
+                }
+            }
+
+            if (block.CompareTag("SunGenerator"))
+            {
+                SunGenerator sunGenerator = block.GetComponent<SunGenerator>();
+                if (sunGenerator != null)
+                {
+                    sunGenerator.Activate(damagePerSecond);
                 }
             }
         }
+    }
 
-        if (collision.gameObject.CompareTag("SunGenerator"))
+    void OnTriggerEnter(Collider collision) 
+    {
+        if (collision.gameObject.GetComponentInParent<Health>() != null)
         {
-            SunGenerator sunGenerator = collision.gameObject.GetComponent<SunGenerator>();
-            if (sunGenerator != null)
+            if (collision.gameObject.GetComponentInParent<Health>().gameObject.CompareTag("PlayerBlock") || 
+                collision.gameObject.GetComponentInParent<Health>().gameObject.CompareTag("Enemy") || 
+                collision.gameObject.GetComponentInParent<Health>().gameObject.CompareTag("ResourceBlock") ||
+                collision.gameObject.GetComponentInParent<Health>().gameObject.CompareTag("RegenResourceBlock") ||
+                collision.gameObject.CompareTag("SunGenerator"))
             {
-                sunGenerator.Activate();
+                collidingBlocks.Add(collision.gameObject);
             }
         }
+            
     }
 
     void OnTriggerExit(Collider collision) 
     {
+        if (collision.gameObject.GetComponentInParent<Health>() != null)
+        {
+            if (collision.gameObject.GetComponentInParent<Health>().gameObject.CompareTag("PlayerBlock") || 
+                collision.gameObject.GetComponentInParent<Health>().gameObject.CompareTag("Enemy") || 
+                collision.gameObject.GetComponentInParent<Health>().gameObject.CompareTag("ResourceBlock") ||
+                collision.gameObject.GetComponentInParent<Health>().gameObject.CompareTag("RegenResourceBlock"))
+            {
+                collidingBlocks.Remove(collision.gameObject);
+            }
+        }
+
         if (collision.gameObject.CompareTag("SunGenerator"))
         {
             SunGenerator sunGenerator = collision.gameObject.GetComponent<SunGenerator>();
@@ -56,6 +84,7 @@ public class SunZone1 : MonoBehaviour
             {
                 sunGenerator.Deactivate();
             }
+            collidingBlocks.Remove(collision.gameObject);
         }
     }
 }

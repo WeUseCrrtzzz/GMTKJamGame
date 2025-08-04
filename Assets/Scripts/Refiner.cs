@@ -24,11 +24,28 @@ public class Refiner : MonoBehaviour
                 bio.refined = true; // Set the refined state to true
             }
         }
+        if (other.CompareTag("ResourceBlock")) 
+        {
+            RegenerableBio bio = other.GetComponent<RegenerableBio>();
+            if (bio != null)
+            {
+                bio.refined = true; // Set the refined state to true
+            }
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("RegenResourceBlock")) 
+        {
+            RegenerableBio bio = other.GetComponent<RegenerableBio>();
+            if (bio != null)
+            {
+                bio.refined = false; // Reset the refined state when exiting the trigger
+            }
+        }
+
+        if (other.CompareTag("ResourceBlock")) 
         {
             RegenerableBio bio = other.GetComponent<RegenerableBio>();
             if (bio != null)

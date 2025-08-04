@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 283914358827754843}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -133,7 +133,7 @@ Transform:
   m_GameObject: {fileID: 6510776809100520372}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.9}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -154,6 +154,7 @@ GameObject:
   - component: {fileID: 5413339707732892548}
   - component: {fileID: 2137085506725200462}
   - component: {fileID: 1145980040810539412}
+  - component: {fileID: 3947574611832509803}
   m_Layer: 0
   m_Name: Regen-Resource
   m_TagString: RegenResourceBlock
@@ -171,7 +172,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1417957535042731189}
@@ -245,7 +246,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -292,3 +293,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 75
   maxHealth: 75
+  emptyBlock: {fileID: 4157802142869750472, guid: 80281bab4a014d44888e66b696c0b3c5, type: 3}
+  nextDamageTime: 0
+  damageInterval: 1
+--- !u!114 &3947574611832509803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6643728915835501606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd85a5ca0c5f72a4cb6099b48d8f2de2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  regenerationInterval: 5
+  nextRegenerationTime: 0
+  generationAmount: 10
+  refined: 0

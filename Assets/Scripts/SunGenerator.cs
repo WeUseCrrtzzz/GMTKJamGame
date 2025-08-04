@@ -29,9 +29,10 @@ public class SunGenerator : MonoBehaviour
         Resources.fuel += generationAmount;
     }
 
-    public void Activate()
+    public void Activate(float amount)
     {
         isActive = true;
+        generationAmount = amount;
     }
 
     public void Deactivate()

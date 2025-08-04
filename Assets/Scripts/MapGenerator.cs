@@ -40,7 +40,7 @@ public class MapGenerator : MonoBehaviour
         Spawn1x1(wildThreatPrefab, 4, 8, 14, -2, gridWidth + 2);
         Spawn1x1(regenResourcePrefab, 4, 8, 14, -2, gridWidth + 2);
 
-        // Random 3–4 planet clusters in Life Zone (spread X!)
+        // Random 3ï¿½4 planet clusters in Life Zone (spread X!)
         List<GameObject[]> clusters = new() { plantStarBodies, monsterStarBodies, warStarBodies };
         int count = Random.Range(3, 5);
         for (int i = 0; i < count; i++)

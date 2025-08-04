@@ -17,7 +17,10 @@ public class MainMenu : MonoBehaviour
 
     private void Start()
     {
-        pauseMenuUI?.SetActive(false);
+        if (pauseMenuUI != null) 
+        {
+            pauseMenuUI?.SetActive(false);
+        }
     }
     void Update()
     {

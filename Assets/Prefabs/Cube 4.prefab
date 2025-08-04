@@ -115,8 +115,8 @@ Transform:
   m_GameObject: {fileID: 3179043548056909985}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4075690606658320}
@@ -207,6 +207,7 @@ GameObject:
   - component: {fileID: 2613094746747558983}
   - component: {fileID: 8191022723496123112}
   - component: {fileID: 6757176889971383951}
+  - component: {fileID: 7096148120079045130}
   m_Layer: 3
   m_Name: Radius
   m_TagString: Untagged
@@ -297,12 +298,27 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7096148120079045130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3664227856140548019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4062db04b7d8d724badd2d49434e6fff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageAmount: 10
+  damageInterval: 1
+  nextDamageTime: 0
 --- !u!1 &5297254592272045543
 GameObject:
   m_ObjectHideFlags: 0
@@ -316,7 +332,6 @@ GameObject:
   - component: {fileID: 6835015184813693307}
   - component: {fileID: 915255816437667856}
   - component: {fileID: -5379688540643784199}
-  - component: {fileID: 6179965314129383865}
   - component: {fileID: 2457817480959830236}
   m_Layer: 0
   m_Name: Cube 4
@@ -411,7 +426,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -433,22 +448,6 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
---- !u!114 &6179965314129383865
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5297254592272045543}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4062db04b7d8d724badd2d49434e6fff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damageAmount: 10
-  damageInterval: 1
-  nextDamageTime: 0
-  health: 100
 --- !u!114 &2457817480959830236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -462,6 +461,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  maxHealth: 100
+  emptyBlock: {fileID: 4157802142869750472, guid: 80281bab4a014d44888e66b696c0b3c5, type: 3}
 --- !u!1 &7078707465093697047
 GameObject:
   m_ObjectHideFlags: 0
@@ -487,7 +488,7 @@ Transform:
   m_GameObject: {fileID: 7078707465093697047}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

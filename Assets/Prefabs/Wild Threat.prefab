@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 2885560870322378206}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -139,7 +139,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8399192645405563256}
@@ -213,7 +213,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -260,6 +260,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 50
   maxHealth: 50
+  emptyBlock: {fileID: 4157802142869750472, guid: 80281bab4a014d44888e66b696c0b3c5, type: 3}
+  nextDamageTime: 0
+  damageInterval: 1
 --- !u!1 &7453541775622371668
 GameObject:
   m_ObjectHideFlags: 0
@@ -285,7 +288,7 @@ Transform:
   m_GameObject: {fileID: 7453541775622371668}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.9}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
   m_ConstrainProportionsScale: 0
   m_Children:

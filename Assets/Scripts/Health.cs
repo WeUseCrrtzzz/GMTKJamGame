@@ -6,7 +6,9 @@ public class Health : MonoBehaviour
     public float health = 100;
     public float maxHealth = 100;
     private GameObject healthBar;
-    
+    public GameObject emptyBlock;
+    public float nextDamageTime = 0f;
+    public float damageInterval = 1.0f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -19,6 +21,7 @@ public class Health : MonoBehaviour
     {
         if (health <= 0) 
         {
+            Instantiate(emptyBlock, transform.position, transform.rotation);
             Destroy(gameObject);
         }
 
