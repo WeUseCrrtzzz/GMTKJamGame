@@ -8,6 +8,7 @@ public class BuildSystem : MonoBehaviour
     public float GridX = 2f;
     public float GridZ = 2f;
     public GameObject[] buildPrefabs;
+    public float[] buildCosts;
     public LayerMask layerMask;
     public LayerMask groundLayerMask;
     public GameObject target;
@@ -66,12 +67,14 @@ public class BuildSystem : MonoBehaviour
         {
             if (Input.GetKeyDown("mouse 0")) 
             {
-                
-
                 // Create the prefab at the snapped position
                 if (BuildingID != 0) 
                 {
-                    Instantiate(buildPrefabs[BuildingID - 1], new Vector3(snappedX, worldPosition.y, snappedZ), Quaternion.identity);
+                    if (Resources.coins >= buildCosts[BuildingID - 1]) 
+                    {
+                        Instantiate(buildPrefabs[BuildingID - 1], new Vector3(snappedX, worldPosition.y, snappedZ), Quaternion.identity);
+                        Resources.coins -= buildCosts[BuildingID - 1];
+                    }
                 }
             }
         }
