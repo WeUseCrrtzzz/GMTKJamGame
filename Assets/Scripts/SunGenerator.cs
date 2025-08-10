@@ -17,6 +17,8 @@ public class SunGenerator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (MainMenu.IsPaused) return;
+
         if (isActive && Time.time >= nextRegenerationTime)
         {
             Regenerate();

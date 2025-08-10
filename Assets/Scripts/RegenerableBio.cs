@@ -64,7 +64,8 @@ public class RegenerableBio : MonoBehaviour
         {
             int regenerationAmount = generationAmount;
             // Regenerate resources
-            Resources.coins += regenerationAmount;
+            //Resources.coins += regenerationAmount;
+            Resources.coins += regenerationAmount * ShipUpgradeManager.ResourceRateMultiplier;
             if (refined)
             {
                 gameObject.GetComponent<Health>().health -= regenerationAmount * 0.35f;
