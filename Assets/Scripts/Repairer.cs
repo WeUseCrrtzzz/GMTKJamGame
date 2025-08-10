@@ -21,7 +21,7 @@ public class Repairer : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("PlayerBlock") || other.CompareTag("ResourceBlock")) 
+        if (other.CompareTag("PlayerBlock") || other.CompareTag("RegenResourceBlock")) 
         {
             if (Time.time >= nextRepairTime)
             {

@@ -8,6 +8,7 @@ public class BuildSystem : MonoBehaviour
     public float GridX = 2f;
     public float GridZ = 2f;
     public GameObject[] buildPrefabs;
+    public GameObject buildPrefab;
     public float[] buildCosts;
     public LayerMask layerMask;
     public LayerMask groundLayerMask;
@@ -75,7 +76,8 @@ public class BuildSystem : MonoBehaviour
 
                     if (Resources.coins >= price) 
                     {
-                        Instantiate(buildPrefabs[BuildingID - 1], new Vector3(snappedX, worldPosition.y, snappedZ), Quaternion.identity);
+                        BuildingBlock block = Instantiate(buildPrefab, new Vector3(snappedX, worldPosition.y, snappedZ), Quaternion.identity).GetComponent<BuildingBlock>();
+                        block.ID = BuildingID - 1;
                         Resources.coins -= price;
                     } else
                     {

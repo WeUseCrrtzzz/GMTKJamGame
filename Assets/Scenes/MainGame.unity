@@ -2628,6 +2628,7 @@ MonoBehaviour:
   - {fileID: 5297254592272045543, guid: d9de91dd16b7ff6468ffafce6b3bbe0a, type: 3}
   - {fileID: 5297254592272045543, guid: 5ea2b088fb9e14245b93ab51836a5eec, type: 3}
   - {fileID: 474868663675262662, guid: 654c492f00c224f49b955b2c73366870, type: 3}
+  buildPrefab: {fileID: 9035888391116838748, guid: 6e17c9e38254dba4b8511e96df4ef281, type: 3}
   buildCosts:
   - 50
   - 25
