@@ -489,8 +489,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfe7e80ca90f098439b0a7eec85c4214, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
-  maxHealth: 100
+  health: 30
+  maxHealth: 50
   emptyBlock: {fileID: 4157802142869750472, guid: 80281bab4a014d44888e66b696c0b3c5, type: 3}
   nextDamageTime: 0
   damageInterval: 1
