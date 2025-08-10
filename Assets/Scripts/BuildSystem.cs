@@ -70,11 +70,24 @@ public class BuildSystem : MonoBehaviour
                 // Create the prefab at the snapped position
                 if (BuildingID != 0) 
                 {
-                    if (Resources.coins >= buildCosts[BuildingID - 1]) 
+                    float baseCost = buildCosts[BuildingID - 1];
+                    float price = GetDiscountedCost(baseCost);
+
+                    if (Resources.coins >= price) 
                     {
                         Instantiate(buildPrefabs[BuildingID - 1], new Vector3(snappedX, worldPosition.y, snappedZ), Quaternion.identity);
-                        Resources.coins -= buildCosts[BuildingID - 1];
+                        Resources.coins -= price;
+                    } else
+                    {
+                        Debug.Log("Not enough coins to build this structure.");
+                        // can display a message to the player or play a sfx
                     }
+
+                    //if (Resources.coins >= buildCosts[BuildingID - 1]) 
+                    //{
+                    //    Instantiate(buildPrefabs[BuildingID - 1], new Vector3(snappedX, worldPosition.y, snappedZ), Quaternion.identity);
+                    //    Resources.coins -= buildCosts[BuildingID - 1];
+                    //}
                 }
             }
         }
@@ -88,5 +101,19 @@ public class BuildSystem : MonoBehaviour
     public void SetBuildingID(int id)
     {
         BuildingID = id;
+    }
+
+    // returns the price after applying ship upgrade discounts
+    float GetDiscountedCost(float baseCost)
+    {
+        float discount = 0f;
+
+        try
+        {
+            discount = ShipUpgradeManager.BuildCostDiscount;
+        }
+        catch { discount = 0f; }
+
+        return Mathf.Max(0f, baseCost - discount); // never below 0
     }
 }
