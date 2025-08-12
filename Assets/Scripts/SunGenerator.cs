@@ -3,7 +3,8 @@ using UnityEngine;
 public class SunGenerator : MonoBehaviour
 {
 
-    public float generationAmount = 10; // Amount to generate
+    public float generationAmount = 1; // Amount to generate
+    public float fuelGenerationAmount = 1; // Amount to generate
     public bool isActive = false; // Indicates if the generator is active
     public float regenerationInterval = 5f; // Time in seconds between regenerations
     public float nextRegenerationTime = 0f;
@@ -28,7 +29,8 @@ public class SunGenerator : MonoBehaviour
 
     void Regenerate()
     {
-        Resources.fuel += generationAmount;
+        Resources.fuel += fuelGenerationAmount;
+        Resources.coins += generationAmount;
     }
 
     public void Activate(float amount)

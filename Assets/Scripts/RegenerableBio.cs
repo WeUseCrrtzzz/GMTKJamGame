@@ -5,7 +5,8 @@ public class RegenerableBio : MonoBehaviour
 
     public float regenerationInterval = 5f; // Time in seconds between regenerations
     public float nextRegenerationTime = 0f;
-    public int generationAmount = 10; // Amount to regenerate
+    public float generationAmount = 1.5f; // Amount to regenerate
+    public float damageAmount = 2; // Amount to regenerate
     public bool refined = false; // Indicates if the bio is refined
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -62,17 +63,17 @@ public class RegenerableBio : MonoBehaviour
     {
         if (Time.time >= nextRegenerationTime)
         {
-            int regenerationAmount = generationAmount;
+            float regenerationAmount = generationAmount;
             // Regenerate resources
             //Resources.coins += regenerationAmount;
             Resources.coins += regenerationAmount * ShipUpgradeManager.ResourceRateMultiplier;
             if (refined)
             {
-                gameObject.GetComponent<Health>().health -= regenerationAmount * 0.35f;
+                gameObject.GetComponent<Health>().health -= damageAmount * 0.35f;
             }
             else
             {
-                gameObject.GetComponent<Health>().health -= regenerationAmount;
+                gameObject.GetComponent<Health>().health -= damageAmount;
             }
             nextRegenerationTime = Time.time + regenerationInterval;
         }

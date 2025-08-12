@@ -398,5 +398,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   regenerationInterval: 5
   nextRegenerationTime: 0
-  generationAmount: 10
+  generationAmount: 1.5
+  damageAmount: 2
   refined: 0

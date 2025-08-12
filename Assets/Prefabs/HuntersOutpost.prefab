@@ -316,7 +316,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4062db04b7d8d724badd2d49434e6fff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageAmount: 10
+  damageAmount: 1
+  generationAmount: 4
   damageInterval: 1
   nextDamageTime: 0
 --- !u!1 &5297254592272045543

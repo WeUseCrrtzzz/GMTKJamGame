@@ -171,7 +171,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   regenerationInterval: 5
   nextRegenerationTime: 0
-  generationAmount: 10
+  generationAmount: 2
+  damageAmount: 2
   refined: 0
 --- !u!1 &1385594229997485014
 GameObject:

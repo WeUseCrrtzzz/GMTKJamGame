@@ -26,12 +26,12 @@ public class Repairer : MonoBehaviour
             if (Time.time >= nextRepairTime)
             {
                 Health healthComponent = other.GetComponent<Health>();
-                if (healthComponent != null && healthComponent.health < 100) // Assuming max health is 100
+                if (healthComponent != null && healthComponent.health < healthComponent.maxHealth)
                 {
                     healthComponent.health += repairAmount;
-                    if (healthComponent.health > 100) // Cap health at 100
+                    if (healthComponent.health > healthComponent.maxHealth)
                     {
-                        healthComponent.health = 100;
+                        healthComponent.health = healthComponent.maxHealth;
                     }
                     nextRepairTime = Time.time + repairInterval;
                     

@@ -4,6 +4,7 @@ public class ProtectionFactory : MonoBehaviour
 {
 
     public float damageAmount = 10f;
+    public float generationAmount = 4f;
     public float damageInterval = 1f;
     public float nextDamageTime = 0f;
 
@@ -31,7 +32,7 @@ public class ProtectionFactory : MonoBehaviour
                 {
                     enemyHealth.health -= damageAmount;
                     thisHealth.health -= damageAmount; // Reduce factory health as well
-                    Resources.coins += damageAmount; // Reward coins for damaging enemies
+                    Resources.coins += generationAmount; // Reward coins for damaging enemies
                     nextDamageTime = Time.time + damageInterval;
                 }
             }
