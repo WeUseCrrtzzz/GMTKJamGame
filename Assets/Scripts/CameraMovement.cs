@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 {
+
+public GameObject sun;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -36,13 +39,13 @@ public class CameraMovement : MonoBehaviour
         {
             transform.position = new Vector3(10f, transform.position.y, transform.position.z);
         }
-        if (transform.position.z < -10f)
+        if (transform.position.z < sun.transform.position.z -38f)
         {
-            transform.position = new Vector3(transform.position.x, transform.position.y, -10f);
+            transform.position = new Vector3(transform.position.x, transform.position.y, sun.transform.position.z -38f);
         }
-        if (transform.position.z > 10f)
+        if (transform.position.z > sun.transform.position.z - 8f)
         {
-            transform.position = new Vector3(transform.position.x, transform.position.y, 10f);
+            transform.position = new Vector3(transform.position.x, transform.position.y, sun.transform.position.z - 8f);
         }
     }
 }
