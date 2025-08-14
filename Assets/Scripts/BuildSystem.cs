@@ -9,6 +9,7 @@ public class BuildSystem : MonoBehaviour
     public float GridZ = 2f;
     public GameObject[] buildPrefabs;
     public GameObject buildPrefab;
+    public GameObject shipPrefab;
     public float[] buildCosts;
     public LayerMask layerMask;
     public LayerMask groundLayerMask;
@@ -55,6 +56,8 @@ public class BuildSystem : MonoBehaviour
             groundLayerMask
         );
 
+        GameObject[] playerBlocks = GameObject.FindGameObjectsWithTag("PlayerBlock");
+
         if (isNotColliding && collidingWithGround)
         {
             target.GetComponent<Renderer>().material.color = Color.green; // Change color to green if valid position
@@ -62,6 +65,22 @@ public class BuildSystem : MonoBehaviour
         else
         {
             target.GetComponent<Renderer>().material.color = Color.red; // Change color to red if invalid position
+        }
+
+        if (playerBlocks.Length <= 0) 
+        {
+            target.GetComponent<Renderer>().material.color = Color.green;
+            BuildingID = 9;
+        }
+
+        if (BuildingID == 9 && isNotColliding && !EventSystem.current.IsPointerOverGameObject()) 
+        {
+            Debug.Log("Can Place Ship");
+            if (Input.GetKeyDown("mouse 0")) 
+            {
+                BuildingBlock block = Instantiate(shipPrefab, new Vector3(snappedX, worldPosition.y, snappedZ), Quaternion.identity).GetComponent<BuildingBlock>();
+                BuildingID = 0; // Reset BuildingID after placing the ship
+            }
         }
 
         if (isNotColliding && collidingWithGround && !EventSystem.current.IsPointerOverGameObject())

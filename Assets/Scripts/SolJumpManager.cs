@@ -61,6 +61,14 @@ public class SolJumpManager : MonoBehaviour
         // Regenerate world
         mapGenerator.GenerateMap();
 
+        // Limit coins
+        if (Resources.coins > Resources.maxCoins)
+            Resources.coins = Resources.maxCoins;
+
+        // Revert Player Max Stats
+        Resources.maxCoins = 100;
+        Resources.maxFuel = 50;
+
         Debug.Log($"Jumped to new Sol! DDU: {currentDDU}, Tier: {tier}, Sun HP: {sunHP}");
     }
 }

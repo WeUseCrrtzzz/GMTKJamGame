@@ -66,6 +66,15 @@ public class MapGenerator : MonoBehaviour
     {
         foreach (Transform child in transform)
             Destroy(child.gameObject);
+
+        GameObject[] playerBlocks = GameObject.FindGameObjectsWithTag("PlayerBlock");
+        GameObject[] emptyBlocks = GameObject.FindGameObjectsWithTag("EmptyBlock");
+
+        foreach (var block in playerBlocks)
+            Destroy(block);
+
+        foreach (var block in emptyBlocks)
+            Destroy(block);
     }
 
     void Spawn1x1(GameObject prefab, int count, int minY, int maxY, int minX, int maxX)

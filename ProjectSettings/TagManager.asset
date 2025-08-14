@@ -10,6 +10,7 @@ TagManager:
   - ResourceBlock
   - RegenResourceBlock
   - SunGenerator
+  - EmptyBlock
   layers:
   - Default
   - TransparentFX

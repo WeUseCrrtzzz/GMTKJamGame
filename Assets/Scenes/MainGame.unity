@@ -3248,6 +3248,7 @@ MonoBehaviour:
   - {fileID: 5297254592272045543, guid: 5ea2b088fb9e14245b93ab51836a5eec, type: 3}
   - {fileID: 474868663675262662, guid: 654c492f00c224f49b955b2c73366870, type: 3}
   buildPrefab: {fileID: 9035888391116838748, guid: 6e17c9e38254dba4b8511e96df4ef281, type: 3}
+  shipPrefab: {fileID: 5359223407378955691, guid: 225e3a95991b3b94caf3a30ba724ee1f, type: 3}
   buildCosts:
   - 50
   - 25
@@ -15171,6 +15172,10 @@ PrefabInstance:
     - target: {fileID: 6292378208561245149, guid: 9db663776bad7724ea768267ef60d28b, type: 3}
       propertyPath: m_Name
       value: Sun
+      objectReference: {fileID: 0}
+    - target: {fileID: 6292378208561245149, guid: 9db663776bad7724ea768267ef60d28b, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 8102637949108752672, guid: 9db663776bad7724ea768267ef60d28b, type: 3}
       propertyPath: m_LocalPosition.x
