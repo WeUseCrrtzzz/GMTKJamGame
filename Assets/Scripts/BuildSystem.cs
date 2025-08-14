@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+using TMPro;
 
 public class BuildSystem : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class BuildSystem : MonoBehaviour
     public GameObject buildPrefab;
     public GameObject shipPrefab;
     public float[] buildCosts;
+    public TextMeshProUGUI[] priceTags;
     public LayerMask layerMask;
     public LayerMask groundLayerMask;
     public GameObject target;
@@ -116,6 +118,19 @@ public class BuildSystem : MonoBehaviour
         if (Input.GetKeyDown("mouse 1")) 
         {
             BuildingID = 0;
+        }
+
+        foreach (TextMeshProUGUI priceTag in priceTags)
+        {
+            if (priceTag != null)
+            {
+                int index = System.Array.IndexOf(priceTags, priceTag);
+                if (index >= 0 && index < buildCosts.Length)
+                {
+                    float discountedCost = GetDiscountedCost(buildCosts[index]);
+                    priceTag.text = discountedCost.ToString();
+                }
+            }
         }
     }
 
