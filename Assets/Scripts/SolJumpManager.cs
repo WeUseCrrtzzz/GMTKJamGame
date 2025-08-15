@@ -22,8 +22,14 @@ public class SolJumpManager : MonoBehaviour
         }
 
         // Apply penalty based on total jumps
-        currentDDU -= jumpCount * 50;
+        //currentDDU -= jumpCount * 50;
+        //currentDDU = Mathf.Max(0, currentDDU);
+
+        if (jumpCount >= 7) currentDDU -= 85;
+        else if (jumpCount >= 4) currentDDU -= 65;
+        else currentDDU -= 50;
         currentDDU = Mathf.Max(0, currentDDU);
+
 
         // Determine Sun HP and Sol Tier
         float sunHP;
