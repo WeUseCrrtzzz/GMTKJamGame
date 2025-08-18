@@ -27,10 +27,18 @@ public class ProtectionFactory : MonoBehaviour
             if (Time.time >= nextDamageTime)
             {
                 Health enemyHealth = other.GetComponent<Health>();
+                Enemy enemy = other.GetComponent<Enemy>();
                 Health thisHealth = gameObject.GetComponentInParent<Health>();
                 if (enemyHealth != null)
                 {
-                    enemyHealth.health -= damageAmount;
+                    if (enemy.refined)
+                    {
+                        enemyHealth.health -= damageAmount * 0.5f;
+                    }
+                    else
+                    {
+                        enemyHealth.health -= damageAmount;
+                    }
                     thisHealth.health -= damageAmount; // Reduce factory health as well
                     Resources.coins += generationAmount; // Reward coins for damaging enemies
                     nextDamageTime = Time.time + damageInterval;

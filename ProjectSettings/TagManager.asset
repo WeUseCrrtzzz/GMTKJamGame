@@ -51,6 +51,12 @@ TagManager:
   - name: SunRadius
     uniqueID: 2697478383
     locked: 0
+  - name: ResourceRadius
+    uniqueID: 372180475
+    locked: 0
+  - name: ResouceRadius2
+    uniqueID: 736721227
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

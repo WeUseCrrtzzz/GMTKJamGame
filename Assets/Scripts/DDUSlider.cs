@@ -20,6 +20,5 @@ public class DDUSlider : MonoBehaviour
 
         Slider slider = gameObject.GetComponent<Slider>();
         slider.value = currentDDU * 0.001f;
-        Debug.Log(currentDDU);
     }
 }

@@ -18,9 +18,20 @@ public class SolJumpTester : MonoBehaviour
 
     public void Jump() 
     {
-        if (Resources.fuel >= 50 && Resources.fuel < 75) jumpManager.JumpToNewSol(SolJumpManager.JumpLevel.A);
-        if (Resources.fuel >= 75 && Resources.fuel < 100) jumpManager.JumpToNewSol(SolJumpManager.JumpLevel.B);
-        if (Resources.fuel >= 100) jumpManager.JumpToNewSol(SolJumpManager.JumpLevel.C);
-        Resources.fuel = 0;
+        if (Resources.fuel >= 100) 
+        {
+            jumpManager.JumpToNewSol(SolJumpManager.JumpLevel.C);
+            Resources.fuel = 0;
+        } 
+        else if (Resources.fuel >= 75) 
+        {
+            jumpManager.JumpToNewSol(SolJumpManager.JumpLevel.B);
+            Resources.fuel = 0;
+        } 
+        else if (Resources.fuel >= 50) 
+        {
+            jumpManager.JumpToNewSol(SolJumpManager.JumpLevel.A);
+            Resources.fuel = 0;
+        } 
     }
 }

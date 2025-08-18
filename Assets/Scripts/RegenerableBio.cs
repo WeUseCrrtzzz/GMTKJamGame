@@ -33,12 +33,14 @@ public class RegenerableBio : MonoBehaviour
         foreach (GameObject enemy in enemies)
         {
             Enemy enemyScript = enemy.GetComponent<Enemy>();
+            Health enemyHealth = enemy.GetComponent<Health>();
             if (enemyScript != null && enemyScript.enabled)
             {
                 float distance = Vector3.Distance(transform.position, enemy.transform.position);
                 if (distance <= 4f && Time.time >= enemyScript.nextRegenerationTime)
                 {
-                    enemyScript.health += enemyScript.regenerationAmount;
+                    if (enemyHealth.health < enemyHealth.maxHealth) enemyHealth.health += enemyScript.regenerationAmount;
+                    
                     if (refined)
                     {
                         gameObject.GetComponent<Health>().health -= enemyScript.regenerationAmount * 0.5f;
@@ -50,11 +52,6 @@ public class RegenerableBio : MonoBehaviour
                     enemyScript.nextRegenerationTime = Time.time + enemyScript.regenerationInterval;
                 }
             }
-        }
-
-        if (gameObject.GetComponent<Health>().health <= 0f)
-        {
-            Destroy(gameObject); // Destroy this object when value is depleted
         }
     }
 

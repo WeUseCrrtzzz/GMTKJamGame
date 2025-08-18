@@ -209,6 +209,7 @@ GameObject:
   - component: {fileID: 1598755052512701922}
   - component: {fileID: 4852796329556111706}
   - component: {fileID: 2125385950546310312}
+  - component: {fileID: 5569765012755264636}
   m_Layer: 0
   m_Name: Wild Threat
   m_TagString: Enemy
@@ -351,6 +352,25 @@ MonoBehaviour:
   emptyBlock: {fileID: 4157802142869750472, guid: 80281bab4a014d44888e66b696c0b3c5, type: 3}
   nextDamageTime: 0
   damageInterval: 1
+  nextRepairTime: 0
+  repairInterval: 1
+--- !u!114 &5569765012755264636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4157802142869750472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d87797cb337e6f49a2ab116b6536cff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  regenerationAmount: 5
+  regenerationInterval: 2
+  nextRegenerationTime: 0
+  refined: 0
 --- !u!1 &7453541775622371668
 GameObject:
   m_ObjectHideFlags: 0

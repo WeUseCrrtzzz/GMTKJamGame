@@ -9,6 +9,8 @@ public class Health : MonoBehaviour
     public GameObject emptyBlock;
     public float nextDamageTime = 0f;
     public float damageInterval = 1.0f;
+    public float nextRepairTime = 0f;
+    public float repairInterval = 1.0f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -21,7 +23,10 @@ public class Health : MonoBehaviour
     {
         if (health <= 0) 
         {
-            Instantiate(emptyBlock, transform.position, transform.rotation);
+            if (gameObject.name != ("Ship(Clone)")) 
+            {
+                Instantiate(emptyBlock, transform.position, transform.rotation);
+            }
             Destroy(gameObject);
         }
 
@@ -29,5 +34,7 @@ public class Health : MonoBehaviour
         {
             healthBar.transform.localScale = new Vector3(0.9f, 0.9f, health / maxHealth * 0.9f);
         }
+
+        //nextRepairTime += Time.deltaTime;
     }
 }
