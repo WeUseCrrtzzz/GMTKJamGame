@@ -45,6 +45,12 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Radius
+    uniqueID: 1297664669
+    locked: 0
+  - name: SunRadius
+    uniqueID: 2697478383
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

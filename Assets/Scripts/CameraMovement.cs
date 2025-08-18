@@ -47,5 +47,16 @@ public GameObject sun;
         {
             transform.position = new Vector3(transform.position.x, transform.position.y, sun.transform.position.z - 8f);
         }
+
+        Camera cam = GetComponent<Camera>();
+        if (cam != null && cam.orthographic == false)
+        {
+            float scroll = Input.GetAxis("Mouse ScrollWheel");
+            if (scroll != 0f)
+            {
+                cam.fieldOfView -= scroll * 10f;
+                cam.fieldOfView = Mathf.Clamp(cam.fieldOfView, 5f, 20f);
+            }
+        }
     }
 }

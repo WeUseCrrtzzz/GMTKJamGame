@@ -69,7 +69,7 @@ public class RegenerableBio : MonoBehaviour
             Resources.coins += regenerationAmount * ShipUpgradeManager.ResourceRateMultiplier;
             if (refined)
             {
-                gameObject.GetComponent<Health>().health -= damageAmount * 0.35f;
+                gameObject.GetComponent<Health>().health -= damageAmount * 0.5f;
             }
             else
             {

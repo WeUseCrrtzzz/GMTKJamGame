@@ -169,9 +169,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd85a5ca0c5f72a4cb6099b48d8f2de2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  regenerationInterval: 5
+  regenerationInterval: 1
   nextRegenerationTime: 0
-  generationAmount: 2
+  generationAmount: 1.5
   damageAmount: 2
   refined: 0
 --- !u!1 &1385594229997485014

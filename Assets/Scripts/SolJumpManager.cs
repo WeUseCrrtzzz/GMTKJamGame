@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class SolJumpManager : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class SolJumpManager : MonoBehaviour
 
     public int currentDDU = 150;
     public int jumpCount = 0;
+    public TextMeshProUGUI jumpText;
 
     public enum JumpLevel { A, B, C }
 
@@ -56,6 +58,7 @@ public class SolJumpManager : MonoBehaviour
         }
 
         jumpCount++;
+        jumpText.text = "Jumps : " + jumpCount;
 
         // Set Sun HP and Tier
         Health sunHealth = sun.GetComponent<Health>();

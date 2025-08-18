@@ -62,19 +62,19 @@ public class UpgradeButton : MonoBehaviour
                 break;
 
             case UpgradeKind.Hunters:
-                if (!mgr.hasHunters) { txt = "Ship‑based Hunters  —  $50"; interactable = Resources.coins >= 50; }
+                if (!mgr.hasHunters) { txt = "Ship‑based Hunters  —  $100"; interactable = Resources.coins >= 100; }
                 else { txt = "Ship‑based Hunters  —  OWNED"; interactable = false; }
                 break;
 
             case UpgradeKind.ShipCollector:
-                if (!mgr.hasShipCollector) { txt = "Ship‑based Sol Collector  —  $50"; interactable = Resources.coins >= 50; }
+                if (!mgr.hasShipCollector) { txt = "Ship‑based Sol Collector  —  $100"; interactable = Resources.coins >= 100; }
                 else { txt = "Ship‑based Sol Collector  —  OWNED"; interactable = false; }
                 break;
 
             case UpgradeKind.BuildDiscount:
                 // Levels: 0->1 ($50), 1->2 ($75), 2 MAX
-                if (mgr.buildLvl == 0) { txt = "Build Discount (-$5 & -2s)  —  $50"; interactable = Resources.coins >= 50; }
-                else if (mgr.buildLvl == 1) { txt = "Build Discount (-$15 & -3s)  —  $75"; interactable = Resources.coins >= 75; }
+                if (mgr.buildLvl == 0) { txt = "Build Discount (-$5 & -2s)  —  $100"; interactable = Resources.coins >= 100; }
+                else if (mgr.buildLvl == 1) { txt = "Build Discount (-$15 & -3s)  —  $100"; interactable = Resources.coins >= 100; }
                 else { txt = "Build Discount  —  MAX"; interactable = false; }
                 break;
 
