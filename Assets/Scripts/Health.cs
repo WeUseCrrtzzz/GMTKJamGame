@@ -23,7 +23,7 @@ public class Health : MonoBehaviour
     {
         if (health <= 0) 
         {
-            if (gameObject.name != ("Ship(Clone)")) 
+            if (gameObject.name != ("Ship(Clone)") && !CompareTag("PlayerBlock")) 
             {
                 Instantiate(emptyBlock, transform.position, transform.rotation);
             }
