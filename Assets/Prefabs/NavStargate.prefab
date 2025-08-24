@@ -595,6 +595,8 @@ MonoBehaviour:
   emptyBlock: {fileID: 4157802142869750472, guid: 80281bab4a014d44888e66b696c0b3c5, type: 3}
   nextDamageTime: 0
   damageInterval: 1
+  nextRepairTime: 0
+  repairInterval: 1
 --- !u!1 &5520378593900527635
 GameObject:
   m_ObjectHideFlags: 0

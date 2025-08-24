@@ -32,6 +32,7 @@ public class Repairer : MonoBehaviour
         {
             Coroutine c = h.StartCoroutine(RepairOverTime(h));
             runningRepair[h] = c;
+            h.repairing = true;
         }
     }
 
@@ -75,6 +76,7 @@ public class Repairer : MonoBehaviour
             }
             runningRepair.Remove(h);
             overlapCount.Remove(h);
+            h.repairing = false;
         }
     }
 

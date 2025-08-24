@@ -11,6 +11,7 @@ public class Health : MonoBehaviour
     public float damageInterval = 1.0f;
     public float nextRepairTime = 0f;
     public float repairInterval = 1.0f;
+    public bool repairing = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -35,6 +36,16 @@ public class Health : MonoBehaviour
             healthBar.transform.localScale = new Vector3(0.9f, 0.9f, health / maxHealth * 0.9f);
         }
 
-        //nextRepairTime += Time.deltaTime;
+        if (repairing) 
+        {
+            var myMaterial = healthBar.transform.Find("Fill").GetComponent<Renderer>().material;
+            myMaterial.EnableKeyword("_EMISSION");
+        }
+        else 
+        {
+            var myMaterial = healthBar.transform.Find("Fill").GetComponent<Renderer>().material;
+            myMaterial.DisableKeyword("_EMISSION");
+        }
+
     }
 }
